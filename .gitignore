@@ -1,0 +1,12 @@
+# Ignore Google service account key
+ServiceAccount.json
+
+# Ignore environment files
+.env
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+
+# Ignore node modules (if using JS)
+node_modules/
