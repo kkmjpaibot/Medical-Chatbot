@@ -33,18 +33,26 @@ body {
 /* ---------------- HEADER ---------------- */
 .chat-header {
     padding: 16px 20px;
-    background: rgba(30, 41, 59, 0.9);
+    background: #041931; /* blue from your logo */
     color: #ffffff;
     font-size: 18px;
     font-weight: 700;
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 12px; /* spacing between logo and text */
+    border-radius: 22px 22px 0 0; /* rounded top corners */
 }
 
-.chat-header span {
-    font-size: 12px;
-    opacity: 0.85;
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.header-left .logo {
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
 }
 
 /* ---------------- CHAT BODY WITH EMOJI BACKGROUND ---------------- */
@@ -218,6 +226,7 @@ body {
         transform: translateY(0);
     }
 }
+
 .restart-btn {
     margin: 10px 0;
     padding: 10px 20px;
