@@ -26,7 +26,13 @@ def validate_dob():
         if age < 18:
             return jsonify({
                 "status": "error",
-                "message": "User must be at least 18 years old"
+                "message": "You must be at least 18 years old to proceed."
+            })
+
+        if age > 80:
+            return jsonify({
+                "status": "error",
+                "message": "This form is only available for users aged 18 to 80."
             })
 
         return jsonify({
@@ -39,6 +45,7 @@ def validate_dob():
             "status": "error",
             "message": "Invalid date format. Use DD/MM/YYYY"
         })
+
 
 # ---------------- PHONE VALIDATION ----------------
 @app.route("/validate_phone", methods=["POST"])

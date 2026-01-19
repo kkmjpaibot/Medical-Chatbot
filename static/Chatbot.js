@@ -113,25 +113,25 @@ function sendMessage() {
 
     // ---------- Step 1: DOB ----------
     if (step === 1) {
-        fetch("/validate_dob", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ dob: text })
-        })
-        .then(res => res.json())
-        .then(data => {
-            if (data.status === "ok") {
-                userData.dob = text;
-                userData.age = data.age;
-                bot(`<b>${data.age}</b> is a great time to plan ahead for your healthcare and medical needs.`);
-                step = 2;
-                askCoverage();
-            } else {
-                bot("❌ Invalid format of Date of Birth. Please use <b>DD/MM/YYYY</b>.");
-            }
-        });
-        return;
-    }
+    fetch("/validate_dob", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ dob: text })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.status === "ok") {
+            userData.dob = text;
+            userData.age = data.age;
+            bot(`<b>${data.age}</b> is a great time to plan ahead for your healthcare and medical needs.`);
+            step = 2;
+            askCoverage();
+        } else {
+            bot("❌ " + data.message);
+        }
+    });
+    return;
+}
 
     // ---------- Step 4: Phone ----------
     if (step === 4) {
